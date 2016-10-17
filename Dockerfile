@@ -5,7 +5,7 @@
 FROM 1science/alpine:3.4
 
 # Node version
-ENV NODE_VERSION=6.7.0
+ENV NODE_VERSION=6.8.1
 
 # Install Node
 RUN apk update && apk-install make gcc g++ python linux-headers paxctl libgcc libstdc++ && \
