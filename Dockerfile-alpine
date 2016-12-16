@@ -1,10 +1,11 @@
 #
-# Node JS image with Consul Template
+# Node JS image with Consul Template, based on Alpine Linux
 #
-FROM node:6.9
+FROM node:6.9-alpine
 MAINTAINER 1science Devops Team <devops@1science.org>
 
-RUN apt-get update && apt-get install -y curl unzip
+RUN apk update && apk upgrade && \
+    apk add curl wget bash tree unzip
 
 # Consul template for configuration management
 ENV S6_OVERLAY_VERSION=1.18.1.5 CONSUL_TEMPLATE_VERSION=0.16.0
@@ -17,6 +18,6 @@ RUN curl -Ls https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VE
     echo -ne "- with `consul-template -v 2>&1`\n" >> /root/.built
 
 # Add services configuration
-ADD etc /etc
+ADD /etc /etc
 
 ENTRYPOINT ["/init"]
