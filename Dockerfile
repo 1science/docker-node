@@ -1,7 +1,7 @@
 #
 # Node JS image with Consul Template
 #
-FROM node:6.9
+FROM node:7.2
 MAINTAINER 1science Devops Team <devops@1science.org>
 
 RUN apt-get update && apt-get install -y curl unzip
