@@ -18,7 +18,7 @@ To run a single script, you can mount it in a volume under `/app`. From the root
 docker run -v ${PWD}:/app -w /app -it --rm 1science/node node hello.js 
 ```
 
-##Consul Template
+## Consul Template
 
 The following example mount the [Consul template](https://github.com/hashicorp/consul-template) configuration in the container: 
 
